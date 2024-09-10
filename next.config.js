@@ -1,7 +1,7 @@
 module.exports = {
   output: 'export',
-  assetPrefix: './',
+  assetPrefix: './', // Ensure this is present
   images: {
-    unoptimized: true,
+    unoptimized: true, // If you're using Next.js image optimization, disable it for static export
   },
 };
