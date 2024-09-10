@@ -34,9 +34,12 @@ const ClientReviews = () => {
                             <ParagraphSkeleton key={index} className="w-80 md:w-96 h-full p-4 md:p-8" />
                         ))
                         :
-                        data?.map((data, key) => (
-                            <div key={key} onClick={() => handleCardClick(data?.clientImage)}>
-                                <ReviewCard data={data} />
+                        error ? 
+                            <div className="text-red-500">Error fetching reviews</div>
+                        :
+                        data?.map((item, key) => (
+                            <div key={key} onClick={() => handleCardClick(item?.clientImage)} className="cursor-pointer">
+                                <ReviewCard data={item} />
                             </div>
                         ))
                 }
@@ -45,9 +48,15 @@ const ClientReviews = () => {
             {/* Modal */}
             {isModalOpen && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" onClick={closeModal}>
-                    <div className="relative bg-white p-4 rounded-lg max-w-lg" onClick={(e) => e.stopPropagation()}>
-                        <img src={selectedImage} alt="Client" className="w-full h-auto" />
-                        <button className="absolute top-2 right-2 text-white bg-red-500 px-2 py-1 rounded-full" onClick={closeModal}>X</button>
+                    <div className="relative bg-white p-4 rounded-lg max-w-lg w-full" onClick={(e) => e.stopPropagation()}>
+                        <img src={selectedImage} alt="Client" className="w-full h-auto object-cover" />
+                        <button 
+                            className="absolute top-2 right-2 text-white bg-red-500 px-2 py-1 rounded-full" 
+                            onClick={closeModal}
+                            aria-label="Close modal"
+                        >
+                            &times;
+                        </button>
                     </div>
                 </div>
             )}
