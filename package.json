@@ -1,14 +1,13 @@
 {
-  "homepage":"https://Issadeenbaseem.github.io/portfolio",
+  "homepage": "https://Issadeenbaseem.github.io/portfolio",
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "predeploy": "next build && next export",
-  "deploy": "gh-pages -d build"
-
-,    "build": "next build",
+    "build": "next build",
+    "export": "next export",
+    "deploy": "gh-pages -d out",
     "start": "next start",
     "lint": "next lint"
   },
@@ -18,7 +17,6 @@
     "axios": "^1.3.4",
     "eslint": "8.30.0",
     "eslint-config-next": "13.1.1",
-    "gh-pages": "^6.1.1",
     "next": "13.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -30,6 +28,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
+    "gh-pages": "^6.1.1",
     "postcss": "^8.4.20",
     "tailwindcss": "^3.2.4"
   }
